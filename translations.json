@@ -1,0 +1,15 @@
+{
+  "en": {
+    "translation": {
+      "navBar": {
+        "about": "About",
+        "projects": "Projects",
+        "contact": "Contact"
+      },
+      "hero": {
+        "title": "Hi! I'm",
+        "subtitle": "React Developer"
+      }
+    }
+  }
+}
