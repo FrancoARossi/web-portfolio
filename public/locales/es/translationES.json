@@ -1,0 +1,17 @@
+{
+  "navBar": {
+    "about": "Sobre mí",
+    "work": "Trabajos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Hola! Soy",
+    "reactDev": "Desarrollador React ⚛️",
+    "petLover": "Amante de las Mascotas \uD83D\uDC36\uD83D\uDC31",
+    "engineer": "Casi Ingeniero \uD83D\uDC68\u200D\uD83D\uDCBB"
+  },
+  "about": {
+    "locationTitle": "Estoy en...",
+    "hobbiesTitle": "Mis pasatiempos son..."
+  }
+}

@@ -5,14 +5,12 @@ type GenericLayoutProps = {
   children: React.ReactNode;
   id: string;
   bgColor?: string;
-  maxW?: string | [string] | object;
 };
 
 const GenericLayout: React.FC<GenericLayoutProps> = ({
   children,
   id,
   bgColor,
-  maxW,
 }) => {
   const colorModeValue = useColorModeValue('gray.50', 'gray.900');
 
@@ -27,7 +25,18 @@ const GenericLayout: React.FC<GenericLayoutProps> = ({
         paddingY="56px"
         id={id}
       >
-        <Container maxW={maxW ?? 'container.2xl'}>{children}</Container>
+        <Container
+          maxW={[
+            'container.sm',
+            null,
+            null,
+            'container.md',
+            'container.xl',
+            'container.2xl',
+          ]}
+        >
+          {children}
+        </Container>
       </Box>
     </>
   );

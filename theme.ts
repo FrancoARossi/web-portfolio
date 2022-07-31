@@ -1,15 +1,23 @@
-import { extendTheme, ThemeConfig } from '@chakra-ui/react';
+import {
+  extendTheme,
+  ThemeConfig,
+  theme as chakraTheme,
+} from '@chakra-ui/react';
 
 const config: ThemeConfig = {
   initialColorMode: 'light',
 };
 
 const theme = extendTheme({
+  ...chakraTheme.fonts,
   config,
+  fonts: {
+    body: 'Roboto Mono, monospace',
+    heading: 'Roboto Mono, monospace',
+  },
   styles: {
     global: {
       html: {
-        fontFamily: `'Sofia Pro', sans-serif`,
         '&::-webkit-scrollbar-track': {
           borderRadius: '10px',
           backgroundColor: '#e6e6e6',

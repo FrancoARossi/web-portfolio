@@ -20,14 +20,6 @@ const Home: React.FC = () => {
         <GenericLayout
           id="hero"
           bgColor={useColorModeValue('brandYellow', 'brandMagenta')}
-          maxW={[
-            'container.sm',
-            null,
-            null,
-            'container.md',
-            'container.xl',
-            'container.2xl',
-          ]}
         >
           <HeroSection />
         </GenericLayout>

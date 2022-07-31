@@ -1,10 +1,20 @@
 // libs
 import React from 'react';
-import { Stack, Box, Container, useColorModeValue } from '@chakra-ui/react';
+import {
+  Stack,
+  Box,
+  Container,
+  useColorModeValue,
+  useColorMode,
+  Button,
+} from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { useTranslation } from 'react-i18next';
+import { BsFillSunFill as Sun, BsFillMoonFill as Moon } from 'react-icons/bs';
 // components
 import LinkItem from './common/LinkItem';
+import SlideIn from './common/SlideIn';
+import i18n from '../i18n';
 
 type NavBarProps = {
   rest?: object;
@@ -12,6 +22,12 @@ type NavBarProps = {
 
 const NavBar: React.FC<NavBarProps> = ({ ...rest }) => {
   const { t } = useTranslation();
+  const { colorMode, toggleColorMode } = useColorMode();
+
+  const changeLanguage = () =>
+    i18n.language === 'en'
+      ? i18n.changeLanguage('es')
+      : i18n.changeLanguage('en');
 
   return (
     <Box
@@ -32,7 +48,6 @@ const NavBar: React.FC<NavBarProps> = ({ ...rest }) => {
         paddingTop="1em"
       >
         <LinkItem
-          as="h1"
           href="#hero"
           color={useColorModeValue('brandMagenta', 'brandYellow')}
           padding="0"
@@ -40,14 +55,37 @@ const NavBar: React.FC<NavBarProps> = ({ ...rest }) => {
         >
           &lt;FrancoRossi &frasl;&gt;
         </LinkItem>
-        <Stack as="nav" direction="row" display={['none', 'flex']}>
-          <LinkItem href="#about" transitionDelay={0.2}>
+        <Stack
+          as="nav"
+          direction="row"
+          display={['none', 'flex']}
+          alignItems="center"
+        >
+          <Button onClick={changeLanguage} bgColor="transparent">
+            {i18n.language === 'en' ? (
+              <SlideIn delay={0.2}>ES</SlideIn>
+            ) : (
+              <SlideIn delay={0.2}>EN</SlideIn>
+            )}
+          </Button>
+          <Button onClick={toggleColorMode} bgColor="transparent">
+            {colorMode === 'light' ? (
+              <SlideIn delay={0.3}>
+                <Moon fontSize="1.5rem" />
+              </SlideIn>
+            ) : (
+              <SlideIn delay={0.3}>
+                <Sun fontSize="1.5rem" />
+              </SlideIn>
+            )}
+          </Button>
+          <LinkItem href="#about" transitionDelay={0.4}>
             {t('navBar.about')}
           </LinkItem>
-          <LinkItem href="#projects" transitionDelay={0.3}>
-            {t('navBar.projects')}
+          <LinkItem href="#work" transitionDelay={0.5}>
+            {t('navBar.work')}
           </LinkItem>
-          <LinkItem href="#contact" transitionDelay={0.4}>
+          <LinkItem href="#contact" transitionDelay={0.6}>
             {t('navBar.contact')}
           </LinkItem>
         </Stack>

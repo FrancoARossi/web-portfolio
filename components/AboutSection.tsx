@@ -1,34 +1,35 @@
+// libs
 import React from 'react';
-import Card from './common/Card';
+import { Center, Divider, Stack, useColorModeValue } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
+import AboutCard from './common/AboutCard';
 
-const AboutSection = () => (
-  <Card padding="2em">
-    <section className="about-section">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-6">
-            <div className="about-text">
-              <h2>About Us</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                eu pulvinar magna. Phasellus semper scelerisque purus eu
-                viverra. Suspendisse venenatis nibh augue, eu aliquam lacus.
-                Mauris tellus felis, pellentesque eget dictum a, sagittis eget
-                nisi.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                eu pulvinar magna. Phasellus semper scelerisque purus eu
-                viverra. Suspendisse venenatis nibh augue, eu aliquam lacus.
-                Mauris tellus felis, pellentesque eget dictum a, sagittis eget
-                nisi.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </Card>
-);
+const AboutSection = () => {
+  const { t } = useTranslation();
+  const cardsTitles = [t('about.locationTitle'), t('about.hobbiesTitle')];
+
+  return (
+    <Stack direction={['column', 'row']} h="80vh">
+      <Center w="50%">Placeholder for image of myself</Center>
+      <Divider
+        orientation="vertical"
+        h="80%"
+        alignSelf="center"
+        borderColor={useColorModeValue('blackAlpha.300', 'whiteAlpha.300')}
+      />
+      <Stack
+        w="100%"
+        direction="column"
+        justifyContent="center"
+        paddingX="4em"
+        gap="1em"
+      >
+        {cardsTitles.map(title => (
+          <AboutCard content={title} key={title} />
+        ))}
+      </Stack>
+    </Stack>
+  );
+};
 
 export default AboutSection;

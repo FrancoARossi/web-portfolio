@@ -16,7 +16,7 @@ const SlideIn: React.ElementType<SlideInProps> = ({
     initial={{ y: -40, opacity: 0 }}
     animate={{
       y: 0,
-      transition: { duration: 0.5, delay: delay ?? 0 },
+      transition: { duration: 0.5, delay: delay ?? 0.1 },
       opacity: 1,
     }}
     {...rest}
